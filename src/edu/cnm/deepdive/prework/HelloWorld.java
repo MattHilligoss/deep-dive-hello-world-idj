@@ -3,16 +3,27 @@ package edu.cnm.deepdive.prework;
 public class HelloWorld {
 
   public static void main(String[] args) {
-    salute(salutation(args));
-      }
-private static String salutation(String[] args) {
- return "Hello World" + ((args.length > 0) ? args[0] : "World");
-
+    String target = salutees(args);
+    String message = salutation(target);
+    salute(message);
   }
-      private static void salute(String salutation){
+
+  private static String salutees(String[] args) {
+    String result = "";
+    for (int i = 0; i < args.length; i++) {
+      result = result + args[i] + ", ";
+    }
+    return result;
+  }
+
+  private static  String salutation(String target) {
+    String result = "Hello, " + (!target.isEmpty() ? target : "World");
+    return result;
+  }
+
+  private static void salute(String salutation) {
     System.out.println(salutation);
   }
-
 
 
 }
